@@ -11,7 +11,7 @@ docker build -t ninthgrimmercury/oliveheart . &&
 	    exit 64 &&
 	    true
     fi &&
-    docker run --interactive freakygamma/oliveheart &&
+    docker run --interactive --tty --privileged --detach --volume /sys/fs/cgroup:/sys/fs/cgroup:ro freakygamma/oliveheart &&
     docker rm $(docker stop $(docker ps -a -q --filter ancestor=freakygamma/olivehear --format="{{.ID}}")) &&
     docker rmi --force freakygamma/oliveheart &&
     docker rmi --force ninthgrimmercury/oliveheart &&
