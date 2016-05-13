@@ -4,5 +4,5 @@ COPY oliveheart.service /usr/lib/systemd/system/oliveheart.service
 COPY oliveheart.sh /opt/oliveheart/oliveheart
 COPY init.sql /opt/oliveheart/init.sql
 ENV MAJOR="3" MINOR="2" PATCH="2"
-RUN chmod 0500 /opt/oliveheart/oliveheart && cd /opt/oliveheart && wget /opt/oliveheart/ http://www.redmine.org/releases/redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && tar xfzv redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && rm /opt/oliveheart/redmine-${MAJOR}.${MINOR.${PATCH}.tar.gz && gem install bundler && echo systemctl enable oliveheart.service
+RUN chmod 0500 /opt/oliveheart/oliveheart && cd /opt/oliveheart && wget /opt/oliveheart/ http://www.redmine.org/releases/redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && tar xfzv redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && rm /opt/oliveheart/redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && gem install bundler && echo systemctl enable oliveheart.service
 CMD ["/usr/sbin/init"]
