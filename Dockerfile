@@ -3,6 +3,6 @@ RUN dnf update --assumeyes && dnf install --assumeyes apr-devel apr-util-devel c
 COPY oliveheart.service /usr/lib/systemd/system/oliveheart.service
 COPY oliveheart.sh /opt/oliveheart/oliveheart
 COPY init.sql /opt/oliveheart/init.sql
-ADD http://www.redmine.org/releases/redmine-3.2.2.tar.gz /opt/oliveheart/redmin.tar.gz
-RUN chmod 0500 /opt/oliveheart/oliveheart && systemctl enable oliveheart.service
+ENV MAJOR="3" MINOR="2" PATCH="2"
+RUN chmod 0500 /opt/oliveheart/oliveheart && cd /opt/oliveheart && wget /opt/oliveheart/ http://www.redmine.org/releases/redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && tar xfzv redmine-${MAJOR}.${MINOR}.${PATCH}.tar.gz && rm /opt/oliveheart/redmine-${MAJOR}.${MINOR.${PATCH}.tar.gz && systemctl enable oliveheart.service
 CMD ["/usr/sbin/init"]
