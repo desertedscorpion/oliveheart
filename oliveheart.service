@@ -1,0 +1,8 @@
+[Unit]
+Description=oliveheart redmine configuration service
+
+[Service]
+ExecStart=/opt/oliveheart/oliveheart.sh
+
+[Install]
+WantedBy=multi-user.target
